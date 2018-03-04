@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, TextInput, Image, AsyncStorage, status } from 'react-native';
 import { Container, Header, Title, Content, Form, Input, Item, Button, Text } from 'native-base';
-import Expo, { Permissions, Notifications } from 'expo';
+//import Expo, { Permissions, Notifications } from 'expo';
 import {Actions} from 'react-native-router-flux';
 
 export default class Main extends Component {
