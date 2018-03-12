@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { AppRegistry, StyleSheet, Text, View, TextInput } from 'react-native';
 
 import { Container, Left, Right, Header, TouchableOpacity, Title, Form, Body, Input, Image, Button, Card, CardItem, source, uri, Label, Content, Item } from 'native-base';
 
@@ -25,6 +25,7 @@ export default class ScreenChange extends React.Component {
  
    ); 
 }}
+AppRegistry.registerComponent('awesomeproject', () => App);
 
 
 const styles = StyleSheet.create({

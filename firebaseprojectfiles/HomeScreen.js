@@ -12,23 +12,13 @@ export default class Home extends Component {
         super();
         this.state = {
         username: "", password: "",
-        isReady: false
+        //isReady: false
         };
         }                
-async componentWillMount() {
-       /*
-        await Expo.Font.loadAsync({
-        Roboto: require("native-base/Fonts/Roboto.ttf"),
-        Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
-        //Ionicons: require("@expo/vector-icons/fonts/Ionicons.ttf")
-        });
-        */
-        this.setState({ isReady: true });
-        }
 
   _handleButtonPressLogin = () => {
 
-    var url = "https://api.dankness95.hasura-app.io/mobile_login";
+    var url = "https://api.astigmatic44.hasura-app.io/mobile_login";
 
     var requestOptions = {
         "method": "POST",
@@ -45,46 +35,33 @@ async componentWillMount() {
     requestOptions.body = JSON.stringify(body);
     
     fetch(url, requestOptions)
-    .then(
-    this.onLoginSuccessfull.bind(this)
-    )    
-    .then(function(result) {
-        console.log(result);
+     
+    .then((result) => {
+        return result.json();
+    })
+    .then((response) => {
+        var responseC = response.responseCode;
+        alert(responseC);
+        /*if (responseC === 200)
+        {*/
+            return Actions.main();
+        /*}
+        else if(responseC === 400) {
+        alert('Invalid Credentials!')
+        }*/
         // To save the auth token received to offline storage
     })
-    .catch(function(error) {
+    .catch((error) => {
         console.log('Request Failed:' + error);
     });
   }
 
-   
-
   onLoginSuccessfull = () => {
-      var url= "https://api.dankness95.hasura-app.io/mobile_login";
-
-      var requestOptions = {
-        "method": "POST",
-        "Headers": {
-            "Content-Type": "application/json"
-        }
-    }
-    fetch(url, requestOptions)
-    .then(function(result) {
-        var response = result.status;
-       alert(response);
-       if ((result.status) === 200) {
-       return Actions.main();
-       }
-       else if ((result.status) === 504)
-       alert('Invalid Credentials');
-        // To save the auth token received to offline storage
-    })
-    .catch(function(error) {
-        console.log('Request Failed:' + error);
-    });
+   return Actions.main();
 };
 
     render(){
+        
 /*
         if (!this.state.isReady) {
             return <Expo.AppLoading />;

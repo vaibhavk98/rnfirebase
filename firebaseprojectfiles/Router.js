@@ -13,7 +13,7 @@ return (
         <Router>
          <Scene key="root" hideNavBar>
          <Scene key="auth">
-         <Scene key="HomeScreen" component={HomeScreen} hideNavBar initial />
+         <Scene key="HomeScreen" component={HomeScreen} hideNavBar initial/>
          <Scene key="Login" component={Login} hideNavBar />
          </Scene>
          <Scene key="main">
